@@ -48,7 +48,7 @@ public class CS30SProject{
     }        
     
     public static String input(){
-        return JOptionPane.showInputDialog(null, "select program to run", "Program Selector", 0, null, Programs, CaesarCypher).toString();
+        return JOptionPane.showInputDialog(null, "select program to run", "Program Selector", 0, null, Programs, GOLFSIMULTOR).toString();
     }
 }
 
