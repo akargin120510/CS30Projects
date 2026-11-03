@@ -29,7 +29,7 @@ public class AndreiKarginCalendarMaker {
 
             //if x or cancel was pressed quits
             if (daysInput == null) {
-                System.exit(0);
+                return -1;
             }
 
             //trys taking an int from the input string if not shows message
@@ -72,7 +72,7 @@ public class AndreiKarginCalendarMaker {
                                                 "Calendar Maker",
                                                 3);
             if (input == null) {
-                System.exit(0);
+                return -1;
             }
 
             try {
@@ -158,7 +158,7 @@ public class AndreiKarginCalendarMaker {
     }    
 
     //main method
-    public static void main(String[] args) {
+    public static void main(String[] args) {                
         //declaring variables
         int days;
         int startDay;
@@ -170,21 +170,19 @@ public class AndreiKarginCalendarMaker {
                                 1);
 
         //main looop so program repeats
-        while (true) {
-
-            //calls daysInput and sets days to return
+        do {            
+             //calls daysInput and sets days to return
             days = daysInput();
 
-            //calls startDayInput and sets startDay to return
-            startDay = startdayInput();
+            if (days !=-1){
+                //calls startDayInput and sets startDay to return
+                startDay = startdayInput();
 
-            //calls display with arguments
-            display(days, startDay);
-
-            //calls playAgain and if it returns false quits
-            if (!playAgain()) {
-                System.exit(0);
-            }
-        }
+                if (startDay != -1){
+                    //calls display with arguments
+                    display(days, startDay); 
+                }
+            }  
+        } while (playAgain());
     }
 }

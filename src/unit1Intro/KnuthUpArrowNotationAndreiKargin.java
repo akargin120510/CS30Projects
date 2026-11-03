@@ -17,7 +17,9 @@ public class KnuthUpArrowNotationAndreiKargin {
      * @param args the command line arguments
      */
     public static void main() {
-        //Intro Message
+        boolean running = true;
+        
+        //Intro Message                
         JOptionPane.showMessageDialog(null, """
                                             In 1976, Donald Knuth introduced the up-arrow
                                             notation for denoting large numbers. The up arrow
@@ -31,7 +33,7 @@ public class KnuthUpArrowNotationAndreiKargin {
 
         //   \u2191   upArrow symbol
         //main code loops so you dont have to open the program for every calculation
-        while (1 == 1) {
+        while (running) {
 
             //declaring variables for a and b
             Integer a = null;
@@ -51,7 +53,7 @@ public class KnuthUpArrowNotationAndreiKargin {
             do {
                 String aInput = JOptionPane.showInputDialog("Input a");
                 if (aInput == null) {
-                    System.exit(0);
+                    running = false;
                 }
                 try {
                     a = Math.abs(Integer.parseInt(aInput));
@@ -64,7 +66,7 @@ public class KnuthUpArrowNotationAndreiKargin {
             do {
                 String bInput = JOptionPane.showInputDialog("Input b");
                 if (bInput == null) {
-                    System.exit(0);
+                    running = false;
                 }
                 try {
                     b = Math.abs(Integer.parseInt(bInput));

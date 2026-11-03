@@ -70,7 +70,7 @@ public class AndreiKarginPasswordTest {
             
             //if x or cancel clicked quits the program
             if (input == null) {
-                System.exit(0);
+                return null;
             }
             
             //if its blank shwo a message to at least input something
@@ -107,19 +107,22 @@ public class AndreiKarginPasswordTest {
             //declaring variables and setting them to returns from 
             //methods input and testpasword
             String password = input();
-            boolean valid = testPassword(password);
+            
+            if (password != null) {
+                boolean valid = testPassword(password);
 
-            //messages depending on if the password is valid
-            if (valid) {
-                JOptionPane.showMessageDialog(null, 
-                                        "password \"" + password + "\" is good",
-                                        "Password test", 
-                                        1);
-            } else {
-                JOptionPane.showMessageDialog(null,
-                                        "password \"" + password + "\" is bad",
-                                        "Password test", 
-                                        1);
+                //messages depending on if the password is valid
+                if (valid) {
+                    JOptionPane.showMessageDialog(null, 
+                                            "password \"" + password + "\" is good",
+                                            "Password test", 
+                                            1);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                                            "password \"" + password + "\" is bad",
+                                            "Password test", 
+                                            1);
+                }
             }
         }
     }

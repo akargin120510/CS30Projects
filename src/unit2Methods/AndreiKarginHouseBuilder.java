@@ -28,7 +28,7 @@ public class AndreiKarginHouseBuilder {
 
             //if x or cancel was pressed quits
             if (input == null) {
-                System.exit(0);
+                return -1;
             }
 
             //trys to take an int from the input string and take absolute value
@@ -140,7 +140,7 @@ public class AndreiKarginHouseBuilder {
     }
 
     //method to ask to play again
-    public static void playAgain() {
+    public static boolean playAgain() {
 
         //declares return variable and sets it to return of confirm dialog
         int confirmReturn = JOptionPane.showConfirmDialog(null,
@@ -150,9 +150,7 @@ public class AndreiKarginHouseBuilder {
                 3);
 
         //confirm dialog returns 0 if yes was pressed so if its not 0 quits
-        if (confirmReturn != 0) {
-            System.exit(0);
-        }
+        return confirmReturn == 0;
     }
 
     //main method
@@ -161,17 +159,16 @@ public class AndreiKarginHouseBuilder {
         int base;
 
         //loops the main program
-        while (true) {
+        do {            
             //calls input and sets base to return
             base = input();
 
-            //calls house building functions with base as an argument
-            roof(base);
-            house(base);
-            walk(base);
-
-            //calls playAgain function to ask to build another house
-            playAgain();
-        }
+            if (base != -1) {
+                //calls house building functions with base as an argument
+                roof(base);
+                house(base);
+                walk(base);   
+            }        
+        } while (playAgain());
     }
 }

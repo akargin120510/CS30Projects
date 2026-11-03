@@ -8,14 +8,16 @@ import javax.swing.JOptionPane;
  * @author Andrei
  * @since Sep 28, 2026
  */
-public class MathematicalCityAndreiKargin {
-
+public class MathematicalCityAndreiKargin {   
+    
     /**
      * Main method for the project
      *
      * @param args the command line arguments
      */
     public static void main(String[] args){
+        boolean running = true;
+        
         //intro message
         JOptionPane.showMessageDialog(null, """
                                             In Wachs city (a very mathematical place to live), the mayor is elected every 4 years, the treasurer is appointed every 2 years, the chief programmer is elected every 3
@@ -23,7 +25,7 @@ public class MathematicalCityAndreiKargin {
                                             and congratulated the chief programmer for winning the recent election. That is, all positions were changed over. This is highly unusual. You will quantify how unusual this
                                             really is. Write a program that inputs the year and the future year and then lists all years between and inclusive when all positions change.""","Mathematical City", 1);
         
-        while (true) {
+        while (running) {
             //declaring variables
             Integer startingYear = null;
             String startingYearInput;
@@ -36,7 +38,7 @@ public class MathematicalCityAndreiKargin {
             do {
                 startingYearInput = JOptionPane.showInputDialog(null,"Input current year","Mathematical City", 3);
                 if (startingYearInput == null) {
-                    System.exit(0);
+                    running =false;
                 }
                 try {
                     startingYear = Integer.valueOf(startingYearInput);
@@ -50,7 +52,7 @@ public class MathematicalCityAndreiKargin {
             do {
                 endingYearInput = JOptionPane.showInputDialog(null,"Input ending year","Mathematical City", 3);
                 if (endingYearInput == null) {
-                    System.exit(0);
+                    running =false;
                 }
                 //trys taking an int from the string input checking for an error because of an invalid input
                 try {

@@ -3,7 +3,7 @@ package unit1Intro;
 
 import javax.swing.JOptionPane;
 /*
- * GuessingGameAndreiKargin - description
+ * GuessingGameAndreiKargin - guessing game
  * 
  * @author Andrei
  * @since Oct 2, 2026
@@ -17,10 +17,12 @@ public class GuessingGameAndreiKargin
      */
     
     public static void main() {
+        boolean running = true;
+        
         //Intro Message
         JOptionPane.showMessageDialog(null, "Number Guessing game","Guessing Game",1);
         
-        while (true) {
+        while (running) {
             //declaring variables
             int guessAmount = 0;
             int low = 1;
@@ -53,7 +55,7 @@ public class GuessingGameAndreiKargin
                 do {
                     letterInput = JOptionPane.showInputDialog(null,"is this your number? " + guess + "\n\nC(Number is Correct), \nL(Number is Lower), \nH(Number is Higher).","Guessing Game",3);
                     if (letterInput == null) {
-                        System.exit(0);
+                        running = false;
                     }
                     //trys to take the first charachter of the input string
                     try {

@@ -103,7 +103,7 @@ public class AndreiKarginRovarspraket {
 
             //closes program if x or cancel was pressed
             if (input == null) {
-                System.exit(0);
+                return null;
             }
         } while (input.isBlank());
 
@@ -134,24 +134,22 @@ public class AndreiKarginRovarspraket {
                                     1);
 
         //program keeps running until you close it
-        while (true) {
+        do {            
             //calls input and sets english sentence to return
             english = input();
 
-            //calls toRovarspraket with english as the parameter, return is 
-            //saved in string rovarspraket
-            rovarspraket = toRovarspraket(english);
+            if (english != null) {
+                //calls toRovarspraket with english as the parameter, return is 
+                //saved in string rovarspraket
+                rovarspraket = toRovarspraket(english);
 
-            //displays the original and translated mesage
-            JOptionPane.showMessageDialog(null,
-                                        "The word/sentence \"" + english + 
-                                        "\" in Rovarspraket is \"" + 
-                                        rovarspraket + "\"");
-
-            //calls playagain and if it had returned false closes the program
-            if (!playAgain()) {
-                System.exit(0);
+                //displays the original and translated mesage
+                JOptionPane.showMessageDialog(null,
+                                            "The word/sentence \"" + english + 
+                                            "\" in Rovarspraket is \"" + 
+                                            rovarspraket + "\"");  
             }
-        }
+  
+        } while (playAgain());
     }
 }

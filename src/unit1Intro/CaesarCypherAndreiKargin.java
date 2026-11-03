@@ -3,7 +3,6 @@ package unit1Intro;
 
 import javax.swing.JOptionPane;
 
-
 /*
  * CaesarCypherAndreiKargin - description
  * 
@@ -12,10 +11,12 @@ import javax.swing.JOptionPane;
 */
 public class CaesarCypherAndreiKargin
 {            
+    private static boolean running = true;
+    
     //Quitting function instead of writing message seperatly
     public static void Quit(){
         JOptionPane.showMessageDialog(null, "Quitting Program","Caesar Cypher Encryption",1);
-        System.exit(0);
+        running = false;
     }
  
     public static void main(){
@@ -47,7 +48,7 @@ public class CaesarCypherAndreiKargin
                                             around to become 'A', 'B', and 'C' respectively.""","Caesar Cypher Encryption",1);
 
         //main loop so it you dont have to keep relaunching the program each encryption/decryption
-        while(true){
+        while(running){
             //takes input letter at least once and until it has a valid one
             do{
                 //saves input string as input dialog return
