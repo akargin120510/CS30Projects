@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  * @since Oct 27, 2026
  */
 public class CS30SProject {
+    public static boolean running = true;
 
     //unit 1 projects
     public static final String CAESARCYPHER = "Caesar Cypher";
@@ -46,20 +47,22 @@ public class CS30SProject {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        do {
+    public static void main(String[] args) {                
+        while (running) {
             run(args);
-        } while (playAgain());
+        }
     }
 
     public static String input() {
-        return JOptionPane.showInputDialog(
+        Object selection = JOptionPane.showInputDialog(
                 null,
                 "select program to run",
                 "Program Selector",
                 0, null,
                 Programs,
-                GOLFSIMULTOR).toString();
+                GOLFSIMULTOR);                
+        
+        return selection.toString();
     }
     
     public static void run(String[] args){
@@ -78,19 +81,10 @@ public class CS30SProject {
                     case GOLFSIMULTOR -> AndreiKarginGolfSimulator.main(args);                                            
                     case OPTOMETRISTCHART -> AndreiKarginOptometristChart.main(args);                    
                     case PRIZEBOARD -> AndreiKarginPrizeBoard.main(args);                                            
-                    case STONESPEBBLES -> AndreiKarginStonesPebbles.main(args);
+                    case STONESPEBBLES -> AndreiKarginStonesPebbles.main(args);                     
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error");
             }
-    }
-
-    public static boolean playAgain() {
-        return JOptionPane.showConfirmDialog(
-                null,
-                "Do you want to run anothers program?",
-                "Program Selector",
-                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
-
     }
 }
